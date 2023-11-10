@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Motivación}{1}{section.1}%
 \contentsline {section}{\numberline {2}Complejo de de Rham}{2}{section.2}%
-\contentsline {section}{\numberline {3}Integración en variedades}{5}{section.3}%
-\contentsline {section}{\numberline {4}Cohomología de de Rham}{9}{section.4}%
-\contentsline {section}{\numberline {5}Teorema de de Rham}{11}{section.5}%
+\contentsline {section}{\numberline {3}Cohomología de de Rham}{5}{section.3}%
+\contentsline {section}{\numberline {4}Integración en variedades}{7}{section.4}%
+\contentsline {section}{\numberline {5}Teorema de de Rham}{9}{section.5}%
