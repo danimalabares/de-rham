@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  10 NOV 2023 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  10 NOV 2023 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1253,13 +1253,13 @@ Package biblatex Info: Reference segment=0 on input line 87.
 \tf@toc=\write6
 \openout6 = `de-rham.toc'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 96.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 96.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1268,14 +1268,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2]
-Overfull \hbox (0.3411pt too wide) in paragraph at lines 156--159
+Overfull \hbox (0.3411pt too wide) in paragraph at lines 158--161
 []\OT1/ppl/m/n/10 Las fun-ciones $\U/msb/m/n/10 R$\OT1/ppl/m/n/10 -multilineale
 s lin-eales $[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \OT1/ppl/m/n/10 se lla-man 
 $\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -tensores\OT1/ppl/m/n/10 .
  []
 
 
-Overfull \hbox (16.02367pt too wide) in paragraph at lines 160--163
+Overfull \hbox (16.02367pt too wide) in paragraph at lines 162--165
 []\OT1/ppl/m/n/10 Una $\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -forma \OT1/ppl/m/n/
 10 o \OT1/ppl/b/it/10 campo $\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -covectorial \
 OT1/ppl/m/n/10 es una secci[]on suave del haz vec-to-rial $[][]\OT1/cmr/m/n/10 
@@ -1283,7 +1283,7 @@ OT1/ppl/m/n/10 es una secci[]on suave del haz vec-to-rial $[][]\OT1/cmr/m/n/10
  []
 
 
-Overfull \hbox (2.68935pt too wide) in paragraph at lines 175--175
+Overfull \hbox (2.68935pt too wide) in paragraph at lines 177--177
 [][]\OT1/ppl/m/n/10 Recordemos que el \OT1/ppl/b/it/10 pro-ducto copa \OT1/ppl/
 m/n/10 en-tre las co-ca-de-nas $\OML/cmm/m/it/10 ' \OMS/cmsy/m/n/10 2 \OML/cmm/
 m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ; \OML/cmm/m/it/1
@@ -1293,7 +1293,7 @@ mm/m/it/10 R\OT1/cmr/m/n/10 )$
  []
 
 
-Overfull \hbox (3.72261pt too wide) in paragraph at lines 180--181
+Overfull \hbox (3.72261pt too wide) in paragraph at lines 182--183
 []\OT1/ppl/m/n/10 Una base de $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]U\OT1/c
 mr/m/n/10 )$ \OT1/ppl/m/n/10 en una vecin-dad co-or-de-nada $\OML/cmm/m/it/10 U
 $ \OT1/ppl/m/n/10 est[]a dada por los $\OML/cmm/m/it/10 k$\OT1/ppl/m/n/10 -cove
@@ -1301,7 +1301,7 @@ ctores
  []
 
 [3] [4]
-Overfull \hbox (23.61372pt too wide) in paragraph at lines 277--278
+Overfull \hbox (23.61372pt too wide) in paragraph at lines 279--280
 []\OT1/ppl/m/n/10 (Cohomolog[]^^Pa de la uni[]on dis-junta) Si $\OML/cmm/m/it/1
 0 M \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 M[]$\OT1/ppl/m/n/10 , en-tonces $\OML
 /cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/
@@ -1311,22 +1311,22 @@ m/n/10 ^^Y [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr
 
 [5] [6]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
-62.
+64.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 [7] [8] [9]
 LaTeX Font Info:    Trying to load font information for U+dutchcal on input lin
-e 501.
+e 503.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/udutchcal.fd
 File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
 )
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.0pt on input line 501.
+(Font)              scaled to size 10.0pt on input line 503.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 7.0pt on input line 501.
+(Font)              scaled to size 7.0pt on input line 503.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 5.0pt on input line 501.
+(Font)              scaled to size 5.0pt on input line 503.
  [10] (./de-rham.aux)
 Package rerunfilecheck Info: File `de-rham.out' has not changed.
 (rerunfilecheck)             Checksum: 1D04CEC0E899A1708D86977AD11BDF97;722.
@@ -1371,10 +1371,10 @@ xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 e/2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on de-rham.pdf (10 pages, 236372 bytes).
+Output written on de-rham.pdf (10 pages, 236545 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
+ 228 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
  53 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
