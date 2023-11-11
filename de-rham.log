@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  10 NOV 2023 12:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  11 NOV 2023 08:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1317,17 +1317,17 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 [7] [8] [9]
 LaTeX Font Info:    Trying to load font information for U+dutchcal on input lin
-e 503.
+e 516.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/udutchcal.fd
 File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
 )
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.0pt on input line 503.
+(Font)              scaled to size 10.0pt on input line 516.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 7.0pt on input line 503.
+(Font)              scaled to size 7.0pt on input line 516.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 5.0pt on input line 503.
- [10] (./de-rham.aux)
+(Font)              scaled to size 5.0pt on input line 516.
+ [10] [11] (./de-rham.aux)
 Package rerunfilecheck Info: File `de-rham.out' has not changed.
 (rerunfilecheck)             Checksum: 1D04CEC0E899A1708D86977AD11BDF97;722.
 Package logreq Info: Writing requests to 'de-rham.run.xml'.
@@ -1335,8 +1335,8 @@ Package logreq Info: Writing requests to 'de-rham.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36402 strings out of 476025
- 738598 string characters out of 5790018
+ 36403 strings out of 476025
+ 738605 string characters out of 5790018
  1871388 words of memory out of 5000000
  56262 multiletter control sequences out of 15000+600000
  523864 words of font info for 62 fonts, out of 8000000 for 9000
@@ -1371,10 +1371,10 @@ xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 e/2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on de-rham.pdf (10 pages, 236570 bytes).
+Output written on de-rham.pdf (11 pages, 236818 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 232 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

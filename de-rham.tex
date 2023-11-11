@@ -484,19 +484,32 @@
 		Basta mostrar el resultado para un sólo simplejo. Suponiendo cierto el teorema de Stokes en $\R^n$,
 		\[\int_{\sigma}d\omega=\int_{\Delta_p}\sigma^*d\omega=\int_{\Delta_p}d\sigma^*\omega=\int_{\partial \Delta_p}\sigma^*\omega\]
 		
-		¿Cómo podemos integrar una función en $\partial\Delta_p$? La idea es parametrizar las caras por separado. Definimos la \textbf{\textit{$i$-ésima función cara}} $F_{i,p}:\Delta_{p-1}\to\Delta_p$ como el único mapeo afín que manda $[e_0,e_1,\ldots,e_{p-1}]\mapsto [\tilde{e}_0,\ldots,\tilde{e}_{i-1},\tilde{e}_{i+1},\ldots,\tilde{e}_p]$. Para que la integral esté bien definida de acuerdo al lema de integración sobre parametrizaciones, es necesario que estos mapeos estén orientados.
+		¿Cómo podemos integrar una función en $\partial\Delta_p$? La idea es parametrizar las caras por separado. Consideremos la única función afín $\Delta_p\to\Delta_p$ que lleva $i$-ésimo vértice al ``último lugar", digamos,
+		\[(e_0,\ldots,e_p)\mapsto (e_0,\ldots,\hat{e}_i,\ldots,e_p,e_i)\]
+		Es decir, manda $e_i\mapsto e_p$, $e_j\mapsto e_j$ si $j<i$, y $e_j\mapsto e_{j-1}$ si $i<j\leq p$.
 		
-		El truco está en considerar el único mapeo afín $\Delta_p\to\Delta_p$ que lleva $i$-ésimo vértice al ``último lugar", es decir, manda $[e_0,\ldots,e_p]$ en $[e_0,\ldots,e_{i-1},e_{i+1},\ldots,e_p,e_i]$. Entonces, la $i$-ésima función cara es la restricción de ese mapeo a $\partial\mathbb{H}^p$.
+		La restricción de esta función a a la frontera del semiespacio superior $\partial\mathbb{H}^p$ es justamente una parametrización de la cara opuesta al $i$-ésimo vértice, que denotaremos por\\ $F_{i}:\Delta_{p-1}\to\Delta_p$.
 		
-		Parafraseando a Lee, vista como composición de permutaciones en las coordenadas, $F_{i,p}$ preserva orientación cuando la permutación es par, es decir, cuando $p-i$ es par. Las coordenadas de $\partial\mathbb{H}^p$ están positivamente orientadas cuando $p$ es par, y por fin, $F_{i,p}$ preserva orientación si y sólo si $i$ es par.
+		Esta función consiste de intercambiar entradas consecutivas $p-i$ veces, que preserva orientación cuando $p-i$ es par. Además, la orientación estándar de $\partial\mathbb{H}^p$ coincide con la orientación de $\R^p$ si y sólo si $p$ es par. En conclusión, $F_i$ preserva orientación si y sólo si $i$ es par.
 		
-		Ahora sí, acomodando los signos para que la orientación sea la misma en todas las parametrizaciones,
+		%Definimos la \textbf{\textit{$i$-ésima función cara}} $F_{i,p}:\Delta_{p-1}\to\Delta_p$ como una parametrización de la cara opuesta al $i$-ésimo vértice como sigue. 
+		%Salvo por la cara opuesta al origen, simplemente es la transformación lineal que resulta de ``ignorar el $i$-ésimo vértice". 
+		%Supongamos que $e_1,\ldots,e_{p-1}$ son los vértices de $\Delta_{p-1}$ y $\tilde{e}_1,\ldots,\tilde{e}_p$ los de $\Delta_p$. Salvo por la 0-ésima cara, $F_{i,p}$ es la transformación lineal que manda $e_j\mapsto\tilde{e}_j$ para $j<i$ y $e_j\mapsto \tilde{e}_{j+1}$ para $j\geq i$. Para la 0-ésima cara, es la única función afín que manda $e_j\mapsto \tilde{e}_{j+1}$ para $j=0,\ldots,p-1$.
+		
+		
+
+	
+		%Parafraseando a Lee, vista como composición de permutaciones en las coordenadas, $F_{i,p}$ preserva orientación cuando la permutación es par, es decir, cuando $p-i$ es par. Las coordenadas de $\partial\mathbb{H}^p$ están positivamente orientadas cuando $p$ es par, y por fin, $F_{i,p}$ preserva orientación si y sólo si $i$ es par.
+		
+		Para que nuestra integral esté bien definida, necesitamos que todas las parametrizaciones preserven orientación, así que:
 		\begin{align*}
-			\int_{\partial\Delta_p}\sigma^*\omega&=\sum_i(-1)^i\int_{\Delta_{p-1}}F^*_{i,p}\sigma^*\omega\\
-			&=\sum_i(-1)^i\int_{\Delta_{p-1}}(\sigma\circ F_{i,p})^*\omega\\
+			\int_{\partial\Delta_p}\sigma^*\omega&=\sum_i(-1)^i\int_{\Delta_{p-1}}F^*_{i}\sigma^*\omega\\
+			&=\sum_i(-1)^i\int_{\Delta_{p-1}}(\sigma\circ F_{i})^*\omega\\
+			&=\sum_i(-1)^i\int_{\sigma\circ F_i}\omega\\
 			&=\int_{\partial\sigma}\omega
+			%{\color{magenta}\;=\sum_{i}\int_{\sigma\circ \tilde{F}_i}\omega=\int_{\sum \sigma\circ\tilde{F}_i}\omega}
 		\end{align*}
-		Ya que, de hecho, $\partial\Delta_p=\sum_i(-1)^i\sigma\circ F_{i,p}$ por definición.
+		Ya que  $\partial\Delta_p=\sum_i(-1)^i\sigma\circ F_{i}$ por definición.
 	\end{proof}
 	
 	\begin{teo}[de de Rham]
