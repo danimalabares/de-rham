@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  11 NOV 2023 08:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  11 NOV 2023 18:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1136,8 +1136,9 @@ Package: xparse 2023-02-02 L3 Experimental document command parser
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
 \c@ejer=\count453
-\@quotelevel=\count454
-\@quotereset=\count455
+\c@af=\count454
+\@quotelevel=\count455
+\@quotereset=\count456
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 8
 7.
 
@@ -1200,16 +1201,16 @@ LaTeX Font Info:    ... okay on input line 87.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count456
+\scratchcounter=\count457
 \scratchdimen=\dimen305
 \scratchbox=\box135
-\nofMPsegments=\count457
-\nofMParguments=\count458
+\nofMPsegments=\count458
+\nofMParguments=\count459
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count459
+\MPscratchCnt=\count460
 \MPscratchDim=\dimen306
-\MPnumerator=\count460
-\makeMPintoPDFobject=\count461
+\MPnumerator=\count461
+\makeMPintoPDFobject=\count462
 \everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1268,13 +1269,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2]
-Overfull \hbox (0.3411pt too wide) in paragraph at lines 158--161
-[]\OT1/ppl/m/n/10 Las fun-ciones $\U/msb/m/n/10 R$\OT1/ppl/m/n/10 -multilineale
-s lin-eales $[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \OT1/ppl/m/n/10 se lla-man 
-$\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -tensores\OT1/ppl/m/n/10 .
- []
-
-
 Overfull \hbox (16.02367pt too wide) in paragraph at lines 162--165
 []\OT1/ppl/m/n/10 Una $\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -forma \OT1/ppl/m/n/
 10 o \OT1/ppl/b/it/10 campo $\OML/cmm/m/it/10 k$\OT1/ppl/b/it/10 -covectorial \
@@ -1301,33 +1295,49 @@ ctores
  []
 
 [3] [4]
-Overfull \hbox (23.61372pt too wide) in paragraph at lines 279--280
-[]\OT1/ppl/m/n/10 (Cohomolog[]^^Pa de la uni[]on dis-junta) Si $\OML/cmm/m/it/1
-0 M \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 M[]$\OT1/ppl/m/n/10 , en-tonces $\OML
-/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) \OMS/cmsy/
-m/n/10 ^^Y [] \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr
-/m/n/10 )$\OT1/ppl/m/n/10 .
+Overfull \hbox (6.76288pt too wide) in paragraph at lines 248--249
+\OT1/ppl/m/n/10 iedades pun-teadas en la cat-e-gor[]^^Pa de es-pa-cios vec-to-r
+i-ales. !`Pero no cualquier funci[]on
  []
 
-[5] [6]
+
+Overfull \hbox (1.62096pt too wide) in paragraph at lines 278--279
+[]\OT1/ppl/m/n/10 (Invarianza ho-mot[]opica). Si $\OML/cmm/m/it/10 M$ \OT1/ppl/
+m/n/10 y $\OML/cmm/m/it/10 N$ \OT1/ppl/m/n/10 son ho-mot[]opicamente equiv-a-le
+ntes, $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )
+ \OMS/cmsy/m/n/10 ^^Y
+ []
+
+[5]
+Overfull \hbox (15.70622pt too wide) detected at line 297
+[]
+ []
+
+[6]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
-64.
+70.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-)
-[7] [8] [9]
+) [7]
+[8] [9]
 LaTeX Font Info:    Trying to load font information for U+dutchcal on input lin
-e 516.
+e 525.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/udutchcal.fd
 File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
 )
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 10.0pt on input line 516.
+(Font)              scaled to size 10.0pt on input line 525.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 7.0pt on input line 516.
+(Font)              scaled to size 7.0pt on input line 525.
 LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
-(Font)              scaled to size 5.0pt on input line 516.
- [10] [11] (./de-rham.aux)
+(Font)              scaled to size 5.0pt on input line 525.
+
+[10]
+Overfull \hbox (39.06586pt too wide) detected at line 556
+ []
+ []
+
+[11] [12] (./de-rham.aux)
 Package rerunfilecheck Info: File `de-rham.out' has not changed.
 (rerunfilecheck)             Checksum: 1D04CEC0E899A1708D86977AD11BDF97;722.
 Package logreq Info: Writing requests to 'de-rham.run.xml'.
@@ -1335,11 +1345,11 @@ Package logreq Info: Writing requests to 'de-rham.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36403 strings out of 476025
- 738605 string characters out of 5790018
- 1871388 words of memory out of 5000000
- 56262 multiletter control sequences out of 15000+600000
- 523864 words of font info for 62 fonts, out of 8000000 for 9000
+ 36607 strings out of 476025
+ 743386 string characters out of 5790018
+ 1877388 words of memory out of 5000000
+ 56458 multiletter control sequences out of 15000+600000
+ 524339 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,89p,1885b,1209s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1371,10 +1381,10 @@ xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 e/2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on de-rham.pdf (11 pages, 236818 bytes).
+Output written on de-rham.pdf (12 pages, 245935 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
+ 242 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 60 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

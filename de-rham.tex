@@ -19,7 +19,7 @@
 \usepackage{dutchcal}
 \usepackage{tikz-cd}
 \usepackage{xcolor}
-
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
 \usetikzlibrary{%
 	matrix,%
 	calc,%
@@ -58,7 +58,7 @@
 \newtheorem*{obs}{Observación}
 \newtheorem{ejer}{Ejercicio}
 \newtheorem*{ejer*}{Ejercicio}
-\newtheorem*{af}{Afirmación}
+\newtheorem{af}{Afirmación}
 \newtheorem*{ejem}{Ejemplo}
 \newtheorem*{pregunta}{Pregunta}
 
@@ -153,11 +153,11 @@
 		\[(dx^1)_p,\ldots,(dx^n)_p\]
 		definidos mediante $(dx^i)_p\left(\frac{\partial}{\partial x^j}\Big|_p\right)=\delta_j^i$ generan un espacio vectorial que llamamos \textbf{\textit{espacio cotangente}} y denotamos por $T_p^*M\approx\Hom(T_pM,\R)$. Sus elementos se llaman \textbf{\textit{1-covectores}}.
 		
-		\item Nuestro siguiente paso es construir el funtor $\bigwedge^k(-)$ que a un espacio vectorial arbitrario asigna el espacio vectorial de \textbf{\textit{$k$-tensores alternantes}}. Aplicaremos este funtor al espacio tangente en un punto, luego variamos el punto para obtener secciones de un haz y finalmente tomamos la suma directa sobre $k$. El resultado es un álgebra graduada asociativa y anticonmutativa a la que después dotaremos de una antiderivación.
+		\item Nuestro siguiente paso es construir el funtor $\bigwedge^k(-)$ que a un espacio vectorial arbitrario asigna la \textbf{\textit{$k$-ésima potencia exterior}}, el espacio vectorial de $k$-tensores alternantes. Aplicaremos este funtor al espacio tangente en un punto, luego variamos el punto para obtener un haz vectorial y finalmente tomamos la suma directa sobre $k$. El resultado es un álgebra graduada asociativa y anticonmutativa a la que después dotaremos de una antiderivación.
 		
-		Las funciones $\R$-multilineales lineales $\underbrace{T_pM\times\ldots\times T_pM}_{k\text{ veces}}\to \R$ se llaman \textbf{\textit{$k$-tensores}}. Un $k$-tensor es un \textbf{\textit{$k$-covector}} si es \textbf{\textit{alternante}}
+		Las funciones $\R$-multilineales $\underbrace{T_pM\times\ldots\times T_pM}_{k\text{ veces}}\to \R$ se llaman \textbf{\textit{$k$-tensores}}. \\Un $k$-tensor es un \textbf{\textit{$k$-covector}} si es \textbf{\textit{alternante}}
 		%en el sentido de que $f(v_{\sigma(1)},\ldots,v_{\sigma(k)})=(\sgn\sigma)f(v_1,\ldots,v_k)$ para cualesquiera $v_1,\ldots,v_k\in T_pM$. Equivalentemente,
-		, es decir, si su valor cambia de signo cuando dos entradas cambian de lugar. La colección de $k$-covectores en $p$ se denota por $\bigwedge^k(T^*_pM)$.
+		, es decir, si su valor cambia de signo cuando intercambiamos dos entradas de lugar. La colección de $k$-covectores en $p$ se denota por $\bigwedge^k(T^*_pM)$.
 		
 		Una \textbf{\textit{$k$-forma}} o \textbf{\textit{campo $k$-covectorial}} es una
 		% función que a cada punto de $M$ le asocia un $k$-covector. Es una 
@@ -180,8 +180,8 @@
 		\[\omega\wedge\tau=(-1)^{\deg\omega\deg\tau}\tau\wedge\omega\]
 		
 		Una base de $\bigwedge^k(T_p^*U)$ en una vecindad coordenada $U$ está dada por los $k$-covectores
-		\[dx^{i_1}\wedge\ldots\wedge dx^{i_k}\qquad \text{con }i_1<\ldots<i_k\]
-		así que es un espacio vectorial de dimensión $\binom{n}{k}$.
+		\[dx^I:=dx^{i_1}\wedge\ldots\wedge dx^{i_k}\qquad \text{con }i_1<\ldots<i_k\]
+		así que es un espacio vectorial de dimensión $\binom{n}{k}$. En particular, $\bigwedge^n(T_p^*U)$ es de dimensión 1 si $M$ es de dimensión $n$, es decir, las $n$-formas se pueden identificar con funciones suaves.
 		\iffalse
 		Conviene pensar en estos objetos , para los 1-covectores $\omega^1,\ldots,\omega^k$ y los vectores $v_1,\ldots,v_k$,
 		\[\omega^1\wedge\ldots\wedge\omega^k(v_1,\ldots,v_k)=\det(\omega^i(v_j))\]
@@ -203,45 +203,50 @@
 		
 		La \textbf{\textit{derivada exterior}} es el operador $d:\Omega^*(M)\to\Omega^*(M)$ definido localmente como
 		\[d\omega=d\sum_Ia_Ix^I =\sum_Ida_I\wedge x^I=\sum_I\sum_j\frac{\partial a_I}{\partial x^j}dx^j\wedge x^I,\]
-		(se extiende correctamente) que satisface las siguientes propiedades:
+		\textcolor{blue}{El \textbf{\textit{operador frontera}} en cohomología singular es simplemente $\Hom(\partial)=\partial^*$ donde $\partial$ es la frontera de cadenas singulares. Recordando la definición del mapeo inducido por el funtor contravariante $\Hom$, tenemos:}
+		\[\begin{tikzcd}
+			\textcolor{blue}{C_{n+1}}\arrow[d,blue,swap,"\partial"]\arrow[rd,blue,"\varphi\circ\partial=\partial^*"]\\	\textcolor{blue}{C_n}\arrow[blue,swap,r,"\varphi"]&\textcolor{blue}{G}
+		\end{tikzcd}\]
+		\textcolor{blue}{que no es más que evaluar el cociclo $\varphi$ en la frontera de una cadena (o en la base, un simplejo), es decir, en la suma alternada de las caras del simplejo:}
+		\[\color{blue}\varphi\partial (\sigma)=\sum_i(-1)^i\varphi(\sigma|[v_1,\ldots,\hat{v}_i,\ldots,v_{n+1}])\]
+		Esta definición se extiende a una $(k+1)$ forma y satisface las siguientes propiedades (es una \textbf{\textit{antiderivación}}):
 		\begin{enumerate}
 			\item Es $\R$-lineal.
 			\item $d(\omega\wedge\tau)=(d\omega)\wedge\tau+(-1)^{\deg\omega}\omega\wedge(d\tau)$
 			\item $d^2=0$
 			\item Si $f\in\Cinf(U)$ y $X$ es un campo vectorial, entonces $(df)(X)=Xf$.
 			
+			
 		\end{enumerate}
-		\textcolor{blue}{El \textbf{\textit{operador frontera en cohomología singular}} es simplemente $\Hom(\partial)=\partial^*$ donde $\partial$ es la frontera de cadenas singulares. Recordando la definición del mapeo inducido mediante el funtor contravariante $\Hom$, tenemos:}
-		\[\begin{tikzcd}
-			\textcolor{blue}{C_{n+1}}\arrow[d,blue,swap,"\partial"]\arrow[rd,blue,"\varphi\circ\partial=\partial^*"]\\	\textcolor{blue}{C_n}\arrow[blue,swap,r,"\varphi"]&\textcolor{blue}{G}
-		\end{tikzcd}\]
-		\textcolor{blue}{que no es más que evaluar el cociclo $\varphi$ en la frontera de una cadena (simplejo), es decir, en la suma alternada de las caras del simplejo:}
-		\[\color{blue}\varphi\partial (\sigma)=\sum_i(-1)^i\varphi(\sigma|[v_1,\ldots,\hat{v}_i,\ldots,v_{n+1}])\]
-		
 		Una $k$-forma $\omega$ es \textbf{\textit{cerrada}} si $d\omega=0$ y \textbf{\textit{exacta}} si existe $\eta\in\Omega^{k-1}(M)$ tal que $d\eta=\omega$.
+		
+
 		
 		
 		\item Dada una función suave $F:N\to M$ entre variedades y un $k$-covector $\omega_{F(p)}\in T^*_{F(p)}M$, el \textbf{\textit{pullback}} de $\omega_{F(p)}$ es el $k$-covector en $T_p^*N$ dado por
 		\[(F^*\omega)_p(v_1,\ldots,v_k)=\omega_{F(p)}(F_{*,p}v_1,\ldots,F_{*,p}v_k)\]
-		para $v_1,\ldots,v_k\in T_pN$ donde $F_{*,p}$ es la diferencial de $F$ definida por $F_{*,p}vf=v(f\circ F)$.
-		
+		para $v_1,\ldots,v_k\in T_pN$ donde $F_{*,p}$ es la diferencial de $F$ definida por $F_{*,p}vf=v(f\circ F)$. Una vez más, se extiende suavemente.
 		
 		\begin{prop}[Propiedades del pullback]
 			Si $F:M\to N$ es una función suave entre variedades y $\omega$ y $\tau$ son formas diferenciales en $M$,
 			\begin{enumerate}
 				\item $F^*:\Omega^k(N)\to\Omega^k(M)$ es $\R$-lineal.
-				\item $F^*(\omega\wedge\tau)=F^*\omega\wedge F^*\tau$.
-				\item En cualquier carta coordenada,
-				\[F^*\left(\sum\omega_Idy^{i_1}\wedge\ldots\wedge dy^{i_k}\right)=\sum(\omega_I\circ F)d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F)\]
-				donde $d$ denota la diferencial.
-			\end{enumerate}
+				\item (Funtorialidad puntual). La $k$-ésima potencia exterior $\bigwedge^k(-)$ es un funtor contravariante en la categoría de variedades punteadas (en general, en la categoría de espacios vectoriales). 
+				%Para el espacio tangente en un punto, tenemos que $\Id_{T_pM}^*=\Id_{\bigwedge^k(T_p^*M)}$ y se intercambia el orden en la composición, $(\varphi\circ \psi)^*=\psi^*\circ\varphi^*$.
+				%$\Id_{T_pM}^*=\Id_{\bigwedge^k(T_p^*M)}$ y, si $G_*:T_{F(p)}N\to T_{G\circ F(p)}P$, entonces $(F_*\circ G_*)^*=G_*^*\circ F_*^*$.
+				
+				\item (Funtorialidad global). $\Omega^*(-)$ es un funtor contravariante.
+				\item (Pullback de la cuña). $F^*(\omega\wedge\tau)=F^*\omega\wedge F^*\tau$.
+				%\item En cualquier carta coordenada,
+				%\[F^*\left(\sum\omega_Idy^{i_1}\wedge\ldots\wedge dy^{i_k}\right)=\sum(\omega_I\circ F)d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F)\]
+				%donde $d$ denota la diferencial.
+			\item (Naturalidad de la derivada exterior).
+			$dF^*\omega=F^*d\omega$.
+		\end{enumerate}
 		\end{prop}
-		
-		\begin{prop}[Naturalidad de la derivada exterior]
-			Si $F:N\to M$ es una función suave entre variedades y $\omega\in\Omega^k(M)$, entonces
-			\[dF^*\omega=F^*d\omega\]
-		\end{prop}
-		
+		\begin{obs}
+			El espacio tangente es un funtor covariante de la cateogría de variedades punteadas en la categoría de espacios vectoriales. ¡Pero no cualquier función suave manda un campo vectorial en otro!
+		\end{obs}
 		
 		
 		
@@ -258,29 +263,29 @@
 	\fi
 	
 	\section{Cohomología de de Rham}\label{sec:3}
-	Ahora construimos el funtor $H_{dR}^p(-)$.
-	\begin{enumerate}
-		\item La \textbf{\textit{$k$-ésima cohomología de de Rham}} es el espacio vectorial cociente
-		\[H_{dR}^k=\frac{\{k\text{-formas cerradas}\}}{\{k\text{-formas exactas}\}}\]
-		
-		\item (Funtorialidad) Sea$F:M\to N$ es una función suave. Como el pullback $F^*:\Omega^k(N)\to\Omega^k(M)$ conmuta con la derivada exterior, manda formas cerradas en cerradas y exactas en exactas, así que desciende a homología y tenemos un \textbf{\textit{pullback en homología}}, que también denotamos por $F^*$, tal que
+	Ahora construimos el funtor $H_{dR}^p(-)$. La \textbf{\textit{$k$-ésima cohomología de de Rham}} es el espacio vectorial cociente
+	\[H_{dR}^k=\frac{\{k\text{-formas cerradas}\}}{\{k\text{-formas exactas}\}}\]
+	\begin{enumerate}		
+		\item (Funtorialidad). Sea$F:M\to N$ es una función suave. Como el pullback 
+		%$F^*:\Omega^k(N)\to\Omega^k(M)$ 
+		conmuta con la derivada exterior, manda formas cerradas en cerradas y exactas en exactas, así que desciende a homología y tenemos un \textbf{\textit{pullback en homología}}, también denotado por $F^*$, tal que
 		\begin{enumerate}
 			\item Si $G:N\to P$ es otra función suave, $(G\circ F)^*=G^*\circ F^*$
 			\item $\Id^*$ es la identidad en $H_{dR}^k(M)$.
 		\end{enumerate}
 		es decir, $H_{dR}^k(-)$ es un funtor contravariante de variedades (con frontera) en espacios vectoriales.
 		
-		\item (Invarianza homotópica) Si $M$ y $N$ son homotópicamente equivalentes, $H_{dR}^k(M)\approx H_{dR}^k(N)$ para toda $k$. El isomorfismo es el inducido por cualquier equivalencia homotópica, ya que dos funciones equivalentemente homotópicas inducen el mismo mapeo en cohomología.
+		\item (Invarianza homotópica). Si $M$ y $N$ son homotópicamente equivalentes, $H_{dR}^k(M)\approx H_{dR}^k(N)$ para toda $k$. El isomorfismo es el inducido por cualquier equivalencia homotópica, ya que dos funciones equivalentemente homotópicas inducen el mismo mapeo en cohomología.
 		
-		(Lema de Poincaré) Si $M$ es contraible, $H_{dR}^p(M)\approx0$ para $p\geq1$.
+		(Lema de Poincaré). Si $M$ es contraible, $H_{dR}^p(M)\approx0$ para $p\geq1$.
 		
 		\item Resultados básicos:
 		\begin{enumerate}
-			\item (Cohomología de la unión disjunta) Si $M=\bigsqcup M_i$, entonces $H_{dR}^p(M)\approx \prod H_{dR}^p(M_i)$. Usando el pullback de las inclusiones.
+			\item (Cohomología de la unión disjunta). Si $M=\bigsqcup M_i$, entonces $H_{dR}^p(M)\approx \prod H_{dR}^p(M_i)$. Usando el pullback de las inclusiones.
 			
-			\item (Cohomología de grado cero) $H_{dR}^0(M)\approx\R$ por ser el espacio de funciones constantes, es decir, soluciones de $df=0$.
+			\item (Cohomología de grado cero). $H_{dR}^0(M)\approx\R$ por ser el espacio de funciones constantes, es decir, soluciones de $df=0$.
 			
-			\item (Mayer-Vietoris) Supongamos que $\{U,V\}$ es una cubierta abierta de $M$. Las inclusiones
+			\item (Mayer-Vietoris). Supongamos que $\{U,V\}$ es una cubierta abierta de $M$. Las inclusiones
 			\[\begin{tikzcd}[column sep=small,row sep=small]
 				&U\arrow[dr,"k"]\\
 				U\cap V\arrow[ru,"i"]\arrow[dr,swap,"j"]&&M\\
@@ -288,22 +293,23 @@
 			\end{tikzcd}\]
 			inducen la siguiente sucesión exacta larga en cohomología:
 			\[\begin{tikzcd}[column sep=small]
-				\cdots\arrow[r,"\delta"]&H_{dR}^p\arrow[r,"k^*\oplus l^*"]&H_{dR}^p(U)\oplus H_{dR}^p(V)\arrow[r,"i^*-j^*"]&H_{dR}^p(U\cap V)\arrow[r,"\delta"]&H_{dR}^{p+1}(M)\arrow[r,"k^*\oplus l^*"]&\cdots
+				\cdots\arrow[r,"\delta"]&H_{dR}^p(M)\arrow[r,"k^*\oplus l^*"]&H_{dR}^p(U)\oplus H_{dR}^p(V)\arrow[r,"i^*-j^*"]&H_{dR}^p(U\cap V)\arrow[r,"\delta"]&H_{dR}^{p+1}(M)\arrow[r,"k^*\oplus l^*"]&\cdots
 			\end{tikzcd}\]
 		\end{enumerate}
 		
 		\item El \textbf{\textit{soporte}} de una forma $\omega$ en $M$ es $\supp \omega=\overline{\{p\in M:\omega(p)\neq0\}}$. La colección de $p$-formas con soporte compacto en $M$ se denota por $\Omega_c^p(M)$. La \textbf{\textit{$p$-ésima cohomología con soporte compacto de $M$}} es el espacio vectorial cociente
 		\[H^p_c(M)=\frac{\ker d:\Omega_c^p(M)\to \Omega_c^{p+1}(M)}{\img d:\Omega_c^{p-1}\to\Omega_c^p(M})\]
+			\begin{ejem}[La cohomología compacta de $\R$]
+			Como no hay funciones constantes no cero con soporte compacto, $H^0(\R)\approx 0$. Consideremos el mapeo
+			\[\int_\R:\Omega_c^1(\R)\to\R\]
+			Es suprayectivo por la existencia de funciones flan. Veamos que su kernel son las 1-formas exactas con soporte compacto. Por un lado, si $df$ tiene soporte contenido en un intervalo $[a,b]$,
+			\[\int_\R df=\int_a^bdf=f(b)-f(a)=0-0.\]
+			Por otro lado, si $g(x)dx$ tiene integral cero en $\R$, su antiderivada
+			\[f(x)=\int_{-\infty}^xg(t)dt\]
+			tiene soporte compacto.			
+		\end{ejem}
 	\end{enumerate}
-	\begin{ejem}[La cohomología compacta de $\R$]
-		Como no hay funciones constantes no cero con soporte compacto, $H^0(\R)\approx 0$. Consideremos el mapeo
-		\[\int_\R:\Omega_c^1(\R)\to\R\]
-		Es suprayectivo por la existencia de funciones flan. Veamos que su kernel son las 1-formas exactas con soporte compacto. Por un lado, si $df$ tiene soporte contenido en un intervalo $[a,b]$,
-		\[\int_\R df=\int_a^bdf=f(b)-f(a)=0-0.\]
-		Por otro lado, si $g(x)dx$ tiene integral cero en $\R$, su antiderivada
-		\[f(x)=\int_{-\infty}^xg(t)dt\]
-		tiene soporte compacto.			
-	\end{ejem}
+
 	\iffalse
 	\begin{ejem}
 		En general,
@@ -392,13 +398,13 @@
 	\begin{prop}[Propiedades de integración en variedades]
 		Sean $M$ y $N$ variedades diferenciables orientadas de dimensión $n$ con o sin frontera y $\omega$ y $\eta$ dos $n$-formas con soporte compacto en $M$.
 		\begin{enumerate}
-			\item \textbf{Linealidad.} Si $a,b\in\R$, entonces $\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta$.
+			\item (Linealidad) Si $a,b\in\R$, entonces $\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta$.
 			
-			\item \textbf{Revierte orientación.} Si $-M$ denota la orientación contraria de $M$, $-\int_M\omega=\int_{-M}\omega$.
+			\item (Revierte orientación) Si $-M$ denota la orientación contraria de $M$, $-\int_M\omega=\int_{-M}\omega$.
 			
-			\item \textbf{Positividad.} Si $\omega$ está positivamente orientada, $\int_M\omega>0$.
+			\item (Positividad) Si $\omega$ está positivamente orientada, $\int_M\omega>0$.
 			
-			\item \textbf{Invarianza bajo difeomorfismos.} Si $F:N\to M$ es un difeomorfismo, $\int_M\omega=\int_M F^*\omega$ si $F$ preserva orientación, y si la revierte una es inversa aditiva de la otra.
+			\item (Invarianza bajo difeomorfismos) Si $F:N\to M$ es un difeomorfismo, $\int_M\omega=\int_M F^*\omega$ si $F$ preserva orientación, y si la revierte una es inversa aditiva de la otra.
 		\end{enumerate}
 	\end{prop}
 	\begin{prop}[Integración sobre parametrizaciones]
@@ -429,6 +435,9 @@
 	\begin{coro}
 		Si $\partial M=0$ o $d\omega=0$, la integral anterior es cero.
 	\end{coro}
+
+		El teorema de Stokes y la proposición de integración sobre parametrizaciones son ciertas para \textbf{\textit{variedades con esquinas}}, es decir, variedades localmente parametrizadas en $\bar{\R}^n_+=\{(x^1,\ldots,x^n):x^i\geq0\}$.
+
 	\iffalse
 	\begin{ejem}[Teorema de Green]
 		Veamos el caso de $\R^2$. Una 1-forma es de la forma $Pdx+Qdy$ para $P,Q\in\Cinf(\R^2)$. Luego,
@@ -472,7 +481,7 @@
 	
 	Si $\omega\in\Omega^p(M)$ y $\sigma$ es un simplejo suave, la \textbf{\textit{integral de $\omega$ sobre $\sigma$}} es
 	\[\int_\sigma \omega=\int_{\Delta_p}\sigma^*\omega\]
-	de acuerdo a que si $\sigma^*\omega=gdx^1\wedge\ldots\wedge dx^p$ en $\Delta_p$, la integral del lado derecho es la integral de Riemann de $g$.
+	de acuerdo a que si $\sigma^*\omega=gdx^1\wedge\ldots\wedge dx^p$ en $\Delta_p$, la integral del lado derecho es la integral de Riemann de $g$. ($\Delta_p$ es una variedad con esquinas, para la cual el pullback está bien definido por pedazos).
 	
 	Si $c\in C_p^\infty(M)$ es una \textbf{\textit{cadena suave}} de la forma $c=\sum_ic_i\sigma_i$, definimos la \textbf{\textit{integral de $\omega$ sobre $c$}} como $\int_c\omega=\sum_ic_i\int_{\sigma_i}\omega$.
 	
@@ -481,7 +490,7 @@
 		\[\int_{\partial c}\omega=\int_cd\omega\]
 	\end{teo}
 	\begin{proof}
-		Basta mostrar el resultado para un sólo simplejo. Suponiendo cierto el teorema de Stokes en $\R^n$,
+		Basta mostrar el resultado para un sólo simplejo. Suponiendo cierto el teorema de Stokes para variedades con esquinas,
 		\[\int_{\sigma}d\omega=\int_{\Delta_p}\sigma^*d\omega=\int_{\Delta_p}d\sigma^*\omega=\int_{\partial \Delta_p}\sigma^*\omega\]
 		
 		¿Cómo podemos integrar una función en $\partial\Delta_p$? La idea es parametrizar las caras por separado. Consideremos la única función afín $\Delta_p\to\Delta_p$ que lleva $i$-ésimo vértice al ``último lugar", digamos,
@@ -518,16 +527,128 @@
 		para cualesquiera representantes de las clases de equivalencia está bien definido y es un isomorfismo para toda $p$.
 	\end{teo}
 	\begin{proof}
-		El hecho de que esté mapeo esté bien definido parece ser la razón de ser de toda nuestra construcción: si $c-c'=\partial b$
+		El mapeo está bien definido por el teorema de Stokes: si $c-c'=\partial b$
 		\[\int_c\omega-\int_{c'}\omega=\int_{c-c'}\omega=\int_{\partial b}\omega=\int_bd\omega=0,\]
 		y si $\omega-\omega'=d\eta$,
 		\[\int_c\omega-\int_c\omega'=\int_c\omega-\omega'=\int_cd\eta=\int_{\partial c}\eta=0.\]
-		Para demostrar que $\mathcal{d}$ es un isomorfismo necesitamos varios resultados.
+		La idea central de la prueba es el \textbf{\textit{argumento Mayer-Vietoris}}: suponemos que la variedad tiene una cubierta por una pareja de abiertos que cada uno y su intersección satisfacen la propiedad, y usamos el lema de los cinco y la naturalidad de nuestra propiedad para construir un isomorfismo. Luego hacemos inducción sobre la cubierta.
+		 \begin{prop}[Naturalidad del homomorfismo de de Rham]. Si $F:M\to N$ es una función suave, el siguiente diagrama conmuta:
+			\[\begin{tikzcd}
+				H_{dR}^p(N)\arrow[r,"F^*"]\arrow[d,"\mathcal{d}",swap]&H_{dR}^p(M)\arrow[d,"\mathcal{d}"]\\
+				H^p(N;\R)\arrow[r,swap,"F^*"]&H^p(M,\R)
+			\end{tikzcd}\]
+			Si $\{U,V\}$ es una cubierta abierta de $M$, el siguiente diagrama conmuta:
+			\[\begin{tikzcd}
+				H^p_{dR}(U\cap V)\arrow[r,"\delta"]\arrow[d,"\mathcal{d}",swap]&H^{p+1}_{dR}(M)\arrow[d,"\mathcal{d}"]\\
+				H^p(U\cap V,\R)\arrow[r,"\partial^*",swap]&H^{p-1}(M,\R)
+			\end{tikzcd}\]
+			donde $\delta$ y $\partial^*$ son los homomorfismos de conexión en las sucesiones de Mayer-Vietoris.
+			 \end{prop}
+			
+		Diremos que una variedad $M$ es \textbf{\textit{de de Rham}} si $\mathcal{d}:H^p_{dR}(M)\to H^p(M)$ es un isomorfismo para toda $p$. Usaremos el argumento de Mayer-Vietoris para demostrar que
+			\begin{af}
+			Si $M$ tiene una cubierta finita de de Rham, $M$ es de de Rham.
+		\end{af}
+		Supongamos que $M$ tiene una cubierta $U_1,\ldots,U_k$ tal que cada $U_i$ y cada intersección finita de ellos son de de Rham. Si $k=1$, terminamos. Si $k=2$ y la cubierta consiste de $U$ y $V$, tenemos el siguiente diagrama cuyos renglones son sucesiones de Mayer-Vietoris y flechas verticales son homomorfismos de de Rham:
+		\[\hspace{-1cm}\begin{tikzcd}[column sep=tiny]
+			H_{dR}^{p-1}(U)\oplus H_{dR}^{p-1}(V)\arrow[r]\arrow[d]&H_{dR}^{p-1}(U\cap V)\arrow[d]\arrow[r]&H^p_{dR}(M)\arrow[d]\arrow[r]&H_{dR}^p(U)\oplus H_{dR}^p(V)\arrow[d]\arrow[r]&H^p_{dR}(U\cap V)\arrow[d]\\
+			H^{p-1}(U,\R)\oplus H^{p-1}(V;\R)\arrow[r]&H^{p-1}(U\cap V;\R)\arrow[r]&H^p(M;\R)\arrow[r]&H^p(U;\R)\oplus H^p(V;\R)\arrow[r]&H^p(U\cap V;\R)
+		\end{tikzcd}\]
+		El diagrama es conmutativo por la naturalidad del homomorfismo de de Rham. Por la hipótesis sobre la cubierta, todas las flechas verticales salvo la del centro son isomorfismos, que también lo es por el Lema de los cinco.
+		
+		Para el paso inductivo tomamos una cubierta $U_1,\ldots,U_{k+1}$. Definiendo $U=U_1\cup \ldots\cup U_k$ y $V=U_{k+1}$, podemos aplicar el mismo diagrama. Con esto demostramos la afirmación.
+		
+		El siguiente paso es demostrar que
+		
+		\begin{af}
+			Si la topología de $M$ tiene una base cuyos abiertos e intersecciones finitas de ellos son de de Rham, $M$ es de de Rham.
+		\end{af}
+		Esta afirmación no la demostraremos. A grandes rasgos, se usan particiones de la unidad para producir conjuntos compactos en la variedad. En las subcubiertas finitas resultantes se aplica la afirmación anterior.
+		
+		Para concluir seguimos los siguientes pasos:
 		\begin{enumerate}
-			\item 
+			\item Cualquier conjunto convexo en $\R^n$ es de de Rham.
+			\item Cualquier abierto en $\R^n$ es de de Rham, pues una base de su topología está dada por una colección de bolas, cada una convexa (Afirmación 2).
+			\item Por naturalidad del homomorfismo de de Rham, la cubierta de cartas coordenadas de $M$ es una cubierta por abiertos de de Rham, que de hecho es una base para la topología de $M$ (Afirmación 2).
 		\end{enumerate}
+		Así que sólo falta demostrar el inciso 1. Si $U$ es un abierto convexo de $\R^n$, por el lema de Poincaré sólo necesitamos confirmar el isomorfismo $H^0_{dR}(U)\overset{\mathcal{d}}{\approx}H^0(U,\R)$. Las 0-formas cerradas en $U$ son funciones constantes, así que para cualquier 0-simplejo $\sigma$,
+		\[\mathcal{d}[f][\sigma]=\int_{\sigma}f=\int_{\Delta_0}\sigma^*f=f\circ\sigma(0)\]
+		no es cero si $f$ no es la función constante cero, así que este elemento genera $H^0(U,\R)\approx\R$.
+		
+
+	
+		\iffalse 
+		\begin{enumerate}
+			\item La unión disjunta de variedades de de Rham es de de Rham.
+			
+			\item Cualquier convexo en $\R^n$ es de de Rham.
+			
+			\item Si $M$ tiene una cubierta finita de de Rham, $M$ es de de Rham.
+			
+			\item Si la topología de $M$ tiene una base por abiertos de de Rham, $M$ es de de Rham.
+			
+			\item Cualquier abierto en $\R^n$ es de de Rham.
+			
+			\item Cualquier variedad suave es de de Rham.
+			
+						%\item Por naturalidad del homomorfismo de de Rham, cualquier abierto y cualquier intersección finita de abiertos en un atlas de $M$ son de de Rham.
+			
+			
+			%\item Cualquier variedad tiene una cubierta abierta $\{U_\alpha\}$ tal que cada abierto $U_\alpha$ es difeomorfo a $\R^n$, y las intersecciones finitas $\bigcap_\alpha U_\alpha$ también.
+	\end{enumerate}\fi
+		
+		
+		
+		\iffalse
+		La prueba recae en las siguientes afirmaciones:
+		\begin{itemize}
+			
+			
+			%\item Cualquier variedad tiene una cubierta abierta $\{U_\alpha\}$ tal que cada abierto $U_\alpha$ es difeomorfo a $\R^n$, y las intersecciones finitas $\bigcap_\alpha U_\alpha$ también.
+			
+			\item Cualquier abierto en $\R^n$ es de de Rham.
+			
+			\item Por naturalidad del homomorfismo de de Rham, cualquier abierto y cualquier intersección finita de abiertos en un atlas de $M$ son de de Rham.
+			
+			\item Si la topología de $M$ tiene una base por abiertos de de Rham, $M$ es de de Rham.
+			
+			%\item La unión disjunta de variedades de de Rham es de de Rham.
+			
+		\end{itemize}
+		
+		Primero comentamos el primer inciso. Si $U$ es un abierto convexo de $R^n$, por el lema de Poincaré sólo necesitamos confirmar el isomorfismo $H^0_{dR}(U)\overset{\mathcal{d}}{\approx}H^0(U,\R)$. Las 0-formas cerradas en $U$ son funciones constantes, así que para cualquier 0-simplejo $\sigma$,
+		\[\mathcal{d}[f][\sigma]=\int_{\sigma}f=\int_{\Delta_0}\sigma^*f=f\circ\sigma(0)\]
+		no es cero si $f$ no es la función cero, así que este elemento genera $H^0(U,\R)\approx\R$. Para un abierto arbitrario se toma una cubierta por bolas y se aplica el tercer inciso.
+		
+		Para el tercer inciso se usan particiones de la unidad para mostrar que si $M$ tiene una base por abiertos de de Rham, de hecho tiene una cubierta por dos abiertos de de Rham.
+		
+		La clave está en mostrar que:
+		\begin{af}
+			Si $M$ tiene una cubierta finita de de Rham, $M$ es de de Rham.
+		\end{af}
+		Supongamos que $M$ tiene una cubierta $U_1,\ldots,U_k$ tal que cada $U_i$ y cada intersección finita de ellos son de de Rham. Si $k=1$, terminamos. Si $k=2$ y la cubierta consiste de $U$ y $V$, tenemos el siguiente diagrama cuyos renglones son sucesiones de Mayer-Vietoris y flechas verticales son homomorfismos de de Rham:
+		\[\hspace{-1cm}\begin{tikzcd}[column sep=tiny]
+			H_{dR}^{p-1}(U)\oplus H_{dR}^{p-1}(V)\arrow[r]\arrow[d]&H_{dR}^{p-1}(U\cap V)\arrow[d]\arrow[r]&H^p_{dR}(M)\arrow[d]\arrow[r]&H_{dR}^p(U)\oplus H_{dR}^p(V)\arrow[d]\arrow[r]&H^p_{dR}(U\cap V)\arrow[d]\\
+			H^{p-1}(U,\R)\oplus H^{p-1}(V;\R)\arrow[r]&H^{p-1}(U\cap V;\R)\arrow[r]&H^p(M;\R)\arrow[r]&H^p(U;\R)\oplus H^p(V;\R)\arrow[r]&H^p(U\cap V;\R)
+		\end{tikzcd}\]
+		El diagrama es conmutativo por la naturalidad del homomorfismo de de Rham. Por la hipótesis sobre la cubierta, todas las flechas verticales salvo la del centro son isomorfismos, que también lo es por el Lema de los cinco.
+		
+		Para el paso inductivo tomamos una cubierta $U_1,\ldots,U_{k+1}$. Definiendo $U=U_1\cup \ldots\cup U_k$ y $V=U_{k+1}$, podemos aplicar el mismo diagrama. Con esto demostramos la afirmación.
+		
+		Finalmente, usando particiones de la unidad se demuestra que si $M$ tiene una base por abiertos de de Rham, de hecho tiene una cubierta por sólo dos abiertos de de Rham.\fi
 	\end{proof}
 	
+	Aprovechemos para enunciar otro resultado cuya demostración también usa el argumento Mayer-Vietoris:
+	\begin{defn}
+		Una función bilineal entre espacios vectoriales
+		\[\langle-,-\rangle:V\times W\to \R\]
+		es \textbf{\textit{no degenerada}} si $\langle v,w\rangle=0$ para todo $v$ implica que $w=0$ y $\langle v,w\rangle=0$ para todo $w$ implica que $v=0$.
+	\end{defn}
+	\begin{teo}[Dualidad de Poincaré]
+		Si $M$ es orientable, la función
+		\[\int:H_{dR}^{p}(M)\otimes H^{n-p}_c(M)\to\R\]
+		dada por la integral del producto cuña es un apareamiento no degenerado.
+	\end{teo}
 	
 	
 	\iffalse
