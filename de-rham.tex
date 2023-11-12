@@ -97,13 +97,13 @@
 	\section{Motivación}\label{sec:1}
 	Las componentes conexas de un espacio $X$ están caracterizadas por el hecho de que, en cada una, \textit{cualquier función localmente constante es globalmente constante}. Definendo $H^0(X)$ como el espacio vectorial de funciones real-valuadas localmente constantes, $\dim H^0(X)$ es el número de componentes conexas de $X$.
 	
-	Ahora observemos que si $M$ es un abierto en $\R^n$, esta propiedad se describe pidiendo que el gradiente
+	Si $M$ es un abierto en $\R^n$, esta propiedad se describe pidiendo que el gradiente
 	\[df=\sum_i\frac{\partial f}{\partial x^i}dx^i\]
-	sea cero. Buscamos una ecuación diferencial natural que nos ayude a definir $H^1(X)$.
+	sea cero.
 	
-	Ahora para generalizar esta idea tomemos una 1-forma $\theta=\sum_ia_idx^i$ y la pensamos como un operador sobre las curvas en $M$ vía
+	Para generalizar esta idea tomamos una 1-forma $\theta=\sum_ia_idx^i$ y la pensamos como un operador sobre las curvas en $M$ vía
 	\[\gamma\mapsto\int_\gamma\theta\]
-	Y se nos antoja que $\theta$ sea \textit{localmente} constante en el sentido de que al variar ligeramente $\gamma$ (sin cambiar los puntos inicial y final) la intergral permanece igual. ¿A qué nos referimos con esto?
+	Y se nos antoja que $\theta$ sea \textit{localmente constante} en el sentido de que al variar ligeramente $\gamma$ (sin cambiar los puntos inicial y final) la intergral permanece igual. ¿A qué nos referimos con esto?
 	
 	\[\begin{tikzpicture}
 		[decoration={markings,mark=at position 0.5 with {\arrow{>}}},
@@ -126,22 +126,22 @@
 		\end{scope}
 	\end{tikzpicture}\]
 	
-	Si las integrales sobre dos curvas homotópicas $\gamma_1$ y $\gamma_2$ coinciden,
-	\[\int_{\gamma_1}\theta=\int_{\gamma_2}\theta\]
-	es decir
+	Que las integrales sobre dos curvas homotópicas $\gamma_1$ y $\gamma_2$ coincidan
+	%\[\int_{\gamma_1}\theta=\int_{\gamma_2}\theta,\]
+	quiere decir que
 	\[0=\int_{\gamma_1}\theta-\int_{\gamma_2}\theta=\int_{\gamma_1-\gamma_2}\theta=\int_{\partial D^2}\theta=\int_{D^2}d\theta,\]
 	así que si $d\theta=0$ la 1-forma es \textit{localmente constante} en el espacio de lazos.
 	
-	Ahora notemos que por el teorema fundamental del cálculo $\int_\gamma df=f(Q)-f(P)$ donde $P$ y $Q$ son los puntos inicial y final de $\gamma$. Diremos que los gradientes (0-formas exactas) son \textbf{\textit{trivialmente}} localmente constantes.
+	Otra vez por el teorema de Stokes, $\int_\gamma df=f(Q)-f(P)$ donde $P$ y $Q$ son los puntos inicial y final de $\gamma$. Así que los gradientes son \textit{trivialmente localmente constantes}.
 	
 	Definamos entonces $H^1(M)$ como el espacio vectorial de integrales de línea localmente constantes módulo las que son trivialmente constantes.
 	
 	\section{Complejo de de Rham}\label{sec:2}
-	En esta sección construimos un funtor contravariante $\Omega^*(-)$ de la categoría de variedades suaves en la categoría de álgebras diferenciales graduadas asociativas y anticonmutativas. A cada álgebra corresponde un complejo de cadenas que llamaremos complejo de de Rham.
+	En esta sección construimos un funtor contravariante $\Omega^*(-)$ que asigna a cada variedad suave un álgebra diferencial graduada asociativa y anticonmutativa. A esta álgebra corresponde un complejo de cadenas que llamaremos complejo de de Rham.
 	\begin{enumerate}
-		\item Una variedad topológica $M$ es \textbf{\textit{diferenciable}} si tiene un atlas tal que las funciones de transición son difeomorfismos. 
+		\item Una variedad topológica $M$ es \textbf{\textit{diferenciable}} si tiene un atlas tal que las funciones de transición son $\Cinf$-diferenciables. 
 		%\linebreak${\psi\circ\varphi^{-1}:\R^n\to\R^n}$ son $\Cinf$-diferenciables. 
-		El atlas debe ser maximal en el sentido de que contiene todas las posibles cartas que son compatibles.
+		El atlas debe ser maximal respecto al orden dado por la inclusión.
 		
 		Si $u^1,\ldots,u^n$ son las funciones coordenadas de $\R^n$ y $(U,\varphi)$ es una carta coordenada de $M$, podemos escribir $\varphi=(x^1,\ldots,x^n)$ donde  $x^i=u^i\circ\varphi$. Una función real-valuada $f$ definida en $M$ es \textbf{\textit{suave}} si su \textbf{\textit{pullback}} $f\circ\varphi^{-1}$ es $\Cinf$-diferenciable. La colección de tales funciones se denota por $\Cinf(M)$.
 		
@@ -153,23 +153,23 @@
 		\[(dx^1)_p,\ldots,(dx^n)_p\]
 		definidos mediante $(dx^i)_p\left(\frac{\partial}{\partial x^j}\Big|_p\right)=\delta_j^i$ generan un espacio vectorial que llamamos \textbf{\textit{espacio cotangente}} y denotamos por $T_p^*M\approx\Hom(T_pM,\R)$. Sus elementos se llaman \textbf{\textit{1-covectores}}.
 		
-		\item Nuestro siguiente paso es construir el funtor $\bigwedge^k(-)$ que a un espacio vectorial arbitrario asigna la \textbf{\textit{$k$-ésima potencia exterior}}, el espacio vectorial de $k$-tensores alternantes. Aplicaremos este funtor al espacio tangente en un punto, luego variamos el punto para obtener un haz vectorial y finalmente tomamos la suma directa sobre $k$. El resultado es un álgebra graduada asociativa y anticonmutativa a la que después dotaremos de una antiderivación.
+		\item Nuestro siguiente paso es construir la $k$-ésima potencia exterior, el espacio vectorial de $k$-tensores alternantes en el espacio tangente a un punto. Veremos que los conceptos definidos puntualmente se pueden extender globalmente, lo que resulta en un haz vectorial cuyas secciones son las $k$-formas. Al tomar suma directa sobre $k$ y definir un producto anticonmutativo obtenemos un álgebra graduada a la que después dotaremos de una antiderivación.
 		
 		Las funciones $\R$-multilineales $\underbrace{T_pM\times\ldots\times T_pM}_{k\text{ veces}}\to \R$ se llaman \textbf{\textit{$k$-tensores}}. \\Un $k$-tensor es un \textbf{\textit{$k$-covector}} si es \textbf{\textit{alternante}}
 		%en el sentido de que $f(v_{\sigma(1)},\ldots,v_{\sigma(k)})=(\sgn\sigma)f(v_1,\ldots,v_k)$ para cualesquiera $v_1,\ldots,v_k\in T_pM$. Equivalentemente,
-		, es decir, si su valor cambia de signo cuando intercambiamos dos entradas de lugar. La colección de $k$-covectores en $p$ se denota por $\bigwedge^k(T^*_pM)$.
+		, es decir, si su valor cambia de signo cuando intercambiamos dos entradas de lugar. La colección de $k$-covectores en $p$ se llama la \textbf{\textit{$k$-ésima potencia exterior}} y se denota por $\bigwedge^k(T^*_pM)$.
 		
 		Una \textbf{\textit{$k$-forma}} o \textbf{\textit{campo $k$-covectorial}} es una
 		% función que a cada punto de $M$ le asocia un $k$-covector. Es una 
-		sección suave del haz vectorial $\bigwedge^k(T^*M)=\bigcup_{p\in M}\bigwedge^k(T_p^*M)$.  La colección de $k$-formas en $M$ se denota por $\Omega^k(M)$.
+		sección suave de la \textbf{\textit{$k$-ésima potencia exterior del haz cotangente}}, $\bigwedge^k(T^*M)=\bigcup_{p\in M}\bigwedge^k(T_p^*M)$.  La colección de $k$-formas en $M$ se denota por $\Omega^k(M)$.
 		
 		
-		\item El \textbf{\textit{producto cuña}} definido puntualmente como el $(k+\ell)$-covector
-		\[(\omega\wedge\tau)_p=\frac{1}{k!\ell!}\operatorname{Alt}(\omega\otimes\tau)_p\]
+		\item Dadas $\omega\in\Omega^k(M)$ y $\tau\in\Omega^\ell(M)$, definimos el \textbf{\textit{producto cuña}} puntualmente como el $(k+\ell)$-covector
+		\[(\omega\wedge\tau)_p:=\frac{1}{k!\ell!}\operatorname{Alt}(\omega\otimes\tau)_p\]
 		%donde $\operatorname{Alt}(\omega_p)(v_1,\ldots,v_k)=\sum_{\sigma\in S_k}\omega_p(v_{\sigma(1)},\ldots,v_{\sigma(k)})$.
 		que explícitamente quiere decir que
-		\[(\omega\wedge\tau)_p(v_1,\ldots,v_{k+\ell})=\sum_{\sigma\in S_{k+\ell}}(\sgn\sigma)\omega_p(v_{\sigma(1)},\ldots,v_{\sigma(k)})\tau_p(v_{\sigma(k+1)},\ldots,v_{\sigma(k+\ell)})\]
-		para $\omega\in\Omega^k(M)$ y $\tau\in\Omega^\ell(M)$, donde $S_{k+\ell}$ es el grupo de permutaciones. Esta operación se extiende suavemente a una $(k+\ell)$-forma.
+		\[(\omega\wedge\tau)_p(v_1,\ldots,v_{k+\ell}):=\sum_{\sigma\in S_{k+\ell}}(\sgn\sigma)\omega_p(v_{\sigma(1)},\ldots,v_{\sigma(k)})\tau_p(v_{\sigma(k+1)},\ldots,v_{\sigma(k+\ell)})\]
+		donde $S_{k+\ell}$ es el grupo de permutaciones. Esta operación se extiende suavemente a una $(k+\ell)$-forma.
 		
 		\textcolor{blue}{Recordemos que el \textbf{\textit{producto copa}} entre las cocadenas $\varphi\in C^k(X;R)$ y $\psi\in C^\ell(X;R)$ está definido como
 			\[(\varphi\smile \psi)(\sigma)=\varphi(\sigma|[v_0,\ldots,v_k])\psi(\sigma|[v_{k+1},\ldots,v_{\ell}])\]
@@ -177,7 +177,7 @@
 		}
 		
 		El producto cuña es bilineal, asociativo y anticonmutativo:
-		\[\omega\wedge\tau=(-1)^{\deg\omega\deg\tau}\tau\wedge\omega\]
+		\[\omega\wedge\tau=(-1)^{k\ell}\tau\wedge\omega\]
 		
 		Una base de $\bigwedge^k(T_p^*U)$ en una vecindad coordenada $U$ está dada por los $k$-covectores
 		\[dx^I:=dx^{i_1}\wedge\ldots\wedge dx^{i_k}\qquad \text{con }i_1<\ldots<i_k\]
@@ -198,11 +198,11 @@
 		
 		
 		\item La \textbf{\textit{derivada exterior de una función real-valuada}} $f\in\Cinf(M)=\Omega^0(M)$ es la 1-forma definida localmente como
-		\[df=\sum\frac{\partial f}{\partial x^i}dx^i\]
-		o, equivalentemente, es el operador que manda $v\mapsto vf$ para $v\in T_pM$. (Esta definición local se extiende a una 1-forma).
+		\[df:=\sum\frac{\partial f}{\partial x^i}dx^i\]
+		o, equivalentemente, es el operador que manda $v\mapsto vf$ para $v\in T_pM$. Esta definición local se extiende a una 1-forma.
 		
 		La \textbf{\textit{derivada exterior}} es el operador $d:\Omega^*(M)\to\Omega^*(M)$ definido localmente como
-		\[d\omega=d\sum_Ia_Ix^I =\sum_Ida_I\wedge x^I=\sum_I\sum_j\frac{\partial a_I}{\partial x^j}dx^j\wedge x^I,\]
+		\[d\omega=d\sum_Ia_Ix^I =\sum_Ida_I\wedge x^I:=\sum_I\sum_j\frac{\partial a_I}{\partial x^j}dx^j\wedge x^I,\]
 		\textcolor{blue}{El \textbf{\textit{operador frontera}} en cohomología singular es simplemente $\Hom(\partial)=\partial^*$ donde $\partial$ es la frontera de cadenas singulares. Recordando la definición del mapeo inducido por el funtor contravariante $\Hom$, tenemos:}
 		\[\begin{tikzcd}
 			\textcolor{blue}{C_{n+1}}\arrow[d,blue,swap,"\partial"]\arrow[rd,blue,"\varphi\circ\partial=\partial^*"]\\	\textcolor{blue}{C_n}\arrow[blue,swap,r,"\varphi"]&\textcolor{blue}{G}
@@ -223,19 +223,19 @@
 
 		
 		
-		\item Dada una función suave $F:N\to M$ entre variedades y un $k$-covector $\omega_{F(p)}\in T^*_{F(p)}M$, el \textbf{\textit{pullback}} de $\omega_{F(p)}$ es el $k$-covector en $T_p^*N$ dado por
+		\item Dada una función suave $F:M\to N$ entre variedades y un $k$-forma $\omega\in \Omega^k(N)$, el \textbf{\textit{pullback}} de $\omega$ es la $k$-forma en $\Omega^k(M)$ definida puntualmente por
 		\[(F^*\omega)_p(v_1,\ldots,v_k)=\omega_{F(p)}(F_{*,p}v_1,\ldots,F_{*,p}v_k)\]
-		para $v_1,\ldots,v_k\in T_pN$ donde $F_{*,p}$ es la diferencial de $F$ definida por $F_{*,p}vf=v(f\circ F)$. Una vez más, se extiende suavemente.
+		para $v_1,\ldots,v_k\in T_pN$ donde $F_{*,p}$ es la diferencial de $F$ definida por $F_{*,p}vf=v(f\circ F)$. Una vez más, la definición se extiende suavemente.
 		
 		\begin{prop}[Propiedades del pullback]
-			Si $F:M\to N$ es una función suave entre variedades y $\omega$ y $\tau$ son formas diferenciales en $M$,
+			Si $F:M\to N$ es una función suave entre variedades y $\omega,\tau$ son formas diferenciales en $M$,
 			\begin{enumerate}
 				\item $F^*:\Omega^k(N)\to\Omega^k(M)$ es $\R$-lineal.
-				\item (Funtorialidad puntual). La $k$-ésima potencia exterior $\bigwedge^k(-)$ es un funtor contravariante en la categoría de variedades punteadas (en general, en la categoría de espacios vectoriales). 
+				\item (Funtorialidad puntual). La $k$-ésima potencia exterior $\bigwedge^k(-)$ es un funtor contravariante en la categoría de variedades punteadas. 
 				%Para el espacio tangente en un punto, tenemos que $\Id_{T_pM}^*=\Id_{\bigwedge^k(T_p^*M)}$ y se intercambia el orden en la composición, $(\varphi\circ \psi)^*=\psi^*\circ\varphi^*$.
 				%$\Id_{T_pM}^*=\Id_{\bigwedge^k(T_p^*M)}$ y, si $G_*:T_{F(p)}N\to T_{G\circ F(p)}P$, entonces $(F_*\circ G_*)^*=G_*^*\circ F_*^*$.
 				
-				\item (Funtorialidad global). $\Omega^*(-)$ es un funtor contravariante.
+				\item (Funtorialidad global). $\Omega^*(-)$ es un funtor contravariante en la categoría de variedades suaves.
 				\item (Pullback de la cuña). $F^*(\omega\wedge\tau)=F^*\omega\wedge F^*\tau$.
 				%\item En cualquier carta coordenada,
 				%\[F^*\left(\sum\omega_Idy^{i_1}\wedge\ldots\wedge dy^{i_k}\right)=\sum(\omega_I\circ F)d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F)\]
@@ -263,10 +263,10 @@
 	\fi
 	
 	\section{Cohomología de de Rham}\label{sec:3}
-	Ahora construimos el funtor $H_{dR}^p(-)$. La \textbf{\textit{$k$-ésima cohomología de de Rham}} es el espacio vectorial cociente
-	\[H_{dR}^k=\frac{\{k\text{-formas cerradas}\}}{\{k\text{-formas exactas}\}}\]
+	Ahora construimos el funtor $H_{dR}^p(-)$. La \textbf{\textit{$k$-ésima cohomología de de Rham}} de una variedad $M$ es el espacio vectorial cociente
+	\[H_{dR}^k(M):=\frac{\{k\text{-formas cerradas}\}}{\{k\text{-formas exactas}\}}\]
 	\begin{enumerate}		
-		\item (Funtorialidad). Sea$F:M\to N$ es una función suave. Como el pullback 
+		\item (Funtorialidad). Sea  $F:M\to N$ es una función suave. Como el pullback 
 		%$F^*:\Omega^k(N)\to\Omega^k(M)$ 
 		conmuta con la derivada exterior, manda formas cerradas en cerradas y exactas en exactas, así que desciende a homología y tenemos un \textbf{\textit{pullback en homología}}, también denotado por $F^*$, tal que
 		\begin{enumerate}
@@ -281,7 +281,7 @@
 		
 		\item Resultados básicos:
 		\begin{enumerate}
-			\item (Cohomología de la unión disjunta). Si $M=\bigsqcup M_i$, entonces $H_{dR}^p(M)\approx \prod H_{dR}^p(M_i)$. Usando el pullback de las inclusiones.
+			\item (Cohomología de la unión disjunta). Si $M=\bigsqcup M_i$, entonces $H_{dR}^p(M)\approx \prod H_{dR}^p(M_i)$. (Usando el pullback de las inclusiones).
 			
 			\item (Cohomología de grado cero). $H_{dR}^0(M)\approx\R$ por ser el espacio de funciones constantes, es decir, soluciones de $df=0$.
 			
@@ -297,8 +297,8 @@
 			\end{tikzcd}\]
 		\end{enumerate}
 		
-		\item El \textbf{\textit{soporte}} de una forma $\omega$ en $M$ es $\supp \omega=\overline{\{p\in M:\omega(p)\neq0\}}$. La colección de $p$-formas con soporte compacto en $M$ se denota por $\Omega_c^p(M)$. La \textbf{\textit{$p$-ésima cohomología con soporte compacto de $M$}} es el espacio vectorial cociente
-		\[H^p_c(M)=\frac{\ker d:\Omega_c^p(M)\to \Omega_c^{p+1}(M)}{\img d:\Omega_c^{p-1}\to\Omega_c^p(M})\]
+		\item El \textbf{\textit{soporte}} de una forma $\omega$ en $M$ es $\supp \omega=\overline{\{p\in M:\omega(p)\neq0\}}$. La colección de $p$-formas con soporte compacto en $M$ se denota por $\Omega_c^p(M)$. La \textbf{\textit{$p$-ésima cohomología con soporte compacto}} de $M$ es el espacio vectorial cociente
+		\[H^p_c(M):=\frac{\ker d:\Omega_c^p(M)\to \Omega_c^{p+1}(M)}{\img d:\Omega_c^{p-1}\to\Omega_c^p(M})\]
 			\begin{ejem}[La cohomología compacta de $\R$]
 			Como no hay funciones constantes no cero con soporte compacto, $H^0(\R)\approx 0$. Consideremos el mapeo
 			\[\int_\R:\Omega_c^1(\R)\to\R\]
@@ -329,7 +329,9 @@
 		
 		Un \textbf{\textit{marco local}} (una $n$-tupla de secciones del haz tangente $TU$ en un abierto $U$ que en cada punto son una base de $T_pU$) está \textbf{\textit{positivamente orientado}} si en cada punto es una base en la orientación de $M$. Si cada punto está en el dominio de un marco local orientado, $M$ es \textbf{\textit{orientable}}.
 		
-		$M$ es orientable si y sólo si existe una $n$-forma que no se anula y es positiva en cualquier marco local orientado que llamamos \textbf{\textit{forma de orientación}}. Si $M$ es Riemanniana orientada existe una única \textbf{\textit{forma de volumen}} $dV$ que vale 1 en cualquier marco local ortonormal orientado de $TM$ y, equivalentemente, en cualesquiera coordenadas locales orientadas $x^1,\ldots,x^n$ se expresa como
+		$M$ es orientable si y sólo si existe una $n$-forma que no se anula y es positiva en cualquier marco local orientado que llamamos \textbf{\textit{forma de orientación}}.
+		
+		(Extra). Si $M$ es Riemanniana orientada existe una única \textbf{\textit{forma de volumen}} $dV$ que vale 1 en cualquier marco local ortonormal orientado de $TM$ y, equivalentemente, en cualesquiera coordenadas locales orientadas $x^1,\ldots,x^n$ se expresa como
 		\[dV_g=\sqrt{\det g_{ij}}dx^1\wedge\ldots\wedge dx^n\]
 		donde $g_{ij}=\left\langle\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j}\right\rangle$.
 	\end{defn}
@@ -390,7 +392,7 @@
 			\[\int_M\omega:=\sum_\alpha\int_{U_\alpha}\rho_\alpha\omega\]
 			que es independiente de la elección de atlas orientado y partición de la unidad.
 			
-			Si $(M,g)$ es Riemanniana orientada y compacta definimos
+			(Extra). Si $(M,g)$ es Riemanniana orientada y compacta definimos
 			\[\operatorname{Vol}(M):=\int_MdV_g\]
 		\end{enumerate}
 	\end{defn}
@@ -398,31 +400,31 @@
 	\begin{prop}[Propiedades de integración en variedades]
 		Sean $M$ y $N$ variedades diferenciables orientadas de dimensión $n$ con o sin frontera y $\omega$ y $\eta$ dos $n$-formas con soporte compacto en $M$.
 		\begin{enumerate}
-			\item (Linealidad) Si $a,b\in\R$, entonces $\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta$.
+			\item (Linealidad). Si $a,b\in\R$, entonces $\int_Ma\omega+b\eta=a\int_M\omega+b\int_M\eta$.
 			
-			\item (Revierte orientación) Si $-M$ denota la orientación contraria de $M$, $-\int_M\omega=\int_{-M}\omega$.
+			\item (Revierte orientación). Si $-M$ denota la orientación contraria de $M$, $-\int_M\omega=\int_{-M}\omega$.
 			
-			\item (Positividad) Si $\omega$ está positivamente orientada, $\int_M\omega>0$.
+			\item (Positividad). Si $\omega$ está positivamente orientada, $\int_M\omega>0$.
 			
-			\item (Invarianza bajo difeomorfismos) Si $F:N\to M$ es un difeomorfismo, $\int_M\omega=\int_M F^*\omega$ si $F$ preserva orientación, y si la revierte una es inversa aditiva de la otra.
+			\item (Invarianza bajo difeomorfismos). Si $F:N\to M$ es un difeomorfismo, $\int_M\omega=\int_M F^*\omega$ si $F$ preserva orientación, y si la revierte una es inversa aditiva de la otra.
 		\end{enumerate}
 	\end{prop}
 	\begin{prop}[Integración sobre parametrizaciones]
-		Sean $M$ es una $n$-variedad orientada con o sin frontera y $\omega$ una $n$-forma con soporte compacto en $M$. Suponamos que $D_1,\ldots,D_k$ son dominios de integración en $\R^n$, y para $i=1,\ldots,k$, tenemos mapeos suaves $F_i:\bar{D}_i\to M$ tales que:
+		Sean $M$ es una $n$-variedad orientada con o sin frontera y $\omega$ una $n$-forma con soporte compacto en $M$. Supongamos que $D_1,\ldots,D_k$ son dominios de integración en $\R^n$, y para $i=1,\ldots,k$, tenemos mapeos suaves $F_i:\bar{D}_i\to M$ tales que:
 		\begin{enumerate}
-			\item $F_i$ se restringe a un mapeo que preserva orientación de $D_i$ en un abierto $W_i\subset M$,
-			\item $W_i\cap W_j\neq\varnothing$ para $i\neq j$,
+			\item $F_i$ se restringe a un mapeo que preserva orientación de $D_i$ en un abierto $W_i\subset M$.
+			\item $W_i\cap W_j\neq\varnothing$ para $i\neq j$.
 			\item $\supp \omega\subseteq\bar{W}_1\cup\ldots\cup\bar{W}_k$.
 		\end{enumerate}
 		Entonces,
 		\[\int_M\omega=\sum_{i=1}^k\int_{D_i}F^*_i\omega\]
 	\end{prop}
+	\iffalse
 	\begin{prop}[Pullback de formas de grado máximo]
 		Si $F:M\to N$ es una función suave entre las variedades $M$ y $N$ con con coordenadas locales $(x^i)$ en $U\subset M$ y $(y^i)$ en $V\subset N$, y si $u$ es cualquier función real-valuada en $N$,
 		\[F^*(udy^1\wedge\ldots\wedge dy^n)=(\det DF)(u\circ F)dx^1\wedge\ldots\wedge dx^n\]
 		donde $DF$ es la matriz jacobiana de la diferencial $F_*$.
-	\end{prop}
-	
+	\end{prop}\fi
 	\begin{defn}
 		Una variedad con frontera $M$ es una $n$-variedad localmente homeomorfa al semiplano superior. Los puntos cuya $n$-ésima coordenada es cero conforman la \textbf{\textit{frontera de $M$}}, que denotamos por $\partial M$. Si $\{(U_\alpha,\varphi_\alpha)\}$ es un atlas en $M$, el atlas $\{(U_\alpha\cap\partial M,\varphi_{\alpha}|_{U_\alpha\cap\partial M})\}$ hace de $\partial M$ una variedad diferenciable de dimensión $(n-1)$ sin frontera, que es orientable si $M$ es orientable.
 	\end{defn}
@@ -480,10 +482,10 @@
 	\end{teo}
 	
 	Si $\omega\in\Omega^p(M)$ y $\sigma$ es un simplejo suave, la \textbf{\textit{integral de $\omega$ sobre $\sigma$}} es
-	\[\int_\sigma \omega=\int_{\Delta_p}\sigma^*\omega\]
+	\[\int_\sigma \omega:=\int_{\Delta_p}\sigma^*\omega\]
 	de acuerdo a que si $\sigma^*\omega=gdx^1\wedge\ldots\wedge dx^p$ en $\Delta_p$, la integral del lado derecho es la integral de Riemann de $g$. ($\Delta_p$ es una variedad con esquinas, para la cual el pullback está bien definido por pedazos).
 	
-	Si $c\in C_p^\infty(M)$ es una \textbf{\textit{cadena suave}} de la forma $c=\sum_ic_i\sigma_i$, definimos la \textbf{\textit{integral de $\omega$ sobre $c$}} como $\int_c\omega=\sum_ic_i\int_{\sigma_i}\omega$.
+	Si $c\in C_p^\infty(M)$ es una \textbf{\textit{cadena suave}} de la forma $c=\sum_ic_i\sigma_i$, definimos la \textbf{\textit{integral de $\omega$ sobre $c$}} como $\int_c\omega:=\sum_ic_i\int_{\sigma_i}\omega$.
 	
 	\begin{teo}[Stokes para cadenas]
 		Si $\omega\in\Omega^{p-1}(M)$ y $c\in C^\infty_p(M)$,
@@ -531,7 +533,9 @@
 		\[\int_c\omega-\int_{c'}\omega=\int_{c-c'}\omega=\int_{\partial b}\omega=\int_bd\omega=0,\]
 		y si $\omega-\omega'=d\eta$,
 		\[\int_c\omega-\int_c\omega'=\int_c\omega-\omega'=\int_cd\eta=\int_{\partial c}\eta=0.\]
-		La idea central de la prueba es el \textbf{\textit{argumento Mayer-Vietoris}}: suponemos que la variedad tiene una cubierta por una pareja de abiertos que cada uno y su intersección satisfacen la propiedad, y usamos el lema de los cinco y la naturalidad de nuestra propiedad para construir un isomorfismo. Luego hacemos inducción sobre la cubierta.
+		Para el resto de la demostración diremos que una variedad $M$ es \textbf{\textit{de de Rham}} si $\mathcal{d}:H^p_{dR}(M)\to H^p(M)$ es un isomorfismo para toda $p$.
+		
+		La idea central es el \textbf{\textit{argumento Mayer-Vietoris}}: suponemos que la variedad tiene una cubierta por una pareja de abiertos que cada uno y su intersección son de de Rham, y usamos el lema de los cinco y la naturalidad del homomorfismo de de Rham para construir un isomorfismo. Luego hacemos inducción sobre la cubierta. Comenzamos enunciando la naturalidad.
 		 \begin{prop}[Naturalidad del homomorfismo de de Rham]. Si $F:M\to N$ es una función suave, el siguiente diagrama conmuta:
 			\[\begin{tikzcd}
 				H_{dR}^p(N)\arrow[r,"F^*"]\arrow[d,"\mathcal{d}",swap]&H_{dR}^p(M)\arrow[d,"\mathcal{d}"]\\
@@ -545,7 +549,7 @@
 			donde $\delta$ y $\partial^*$ son los homomorfismos de conexión en las sucesiones de Mayer-Vietoris.
 			 \end{prop}
 			
-		Diremos que una variedad $M$ es \textbf{\textit{de de Rham}} si $\mathcal{d}:H^p_{dR}(M)\to H^p(M)$ es un isomorfismo para toda $p$. Usaremos el argumento de Mayer-Vietoris para demostrar que
+		 Usaremos el argumento Mayer-Vietoris para demostrar que
 			\begin{af}
 			Si $M$ tiene una cubierta finita de de Rham, $M$ es de de Rham.
 		\end{af}
@@ -558,12 +562,12 @@
 		
 		Para el paso inductivo tomamos una cubierta $U_1,\ldots,U_{k+1}$. Definiendo $U=U_1\cup \ldots\cup U_k$ y $V=U_{k+1}$, podemos aplicar el mismo diagrama. Con esto demostramos la afirmación.
 		
-		El siguiente paso es demostrar que
+		El siguiente paso es demostrar que:
 		
 		\begin{af}
 			Si la topología de $M$ tiene una base cuyos abiertos e intersecciones finitas de ellos son de de Rham, $M$ es de de Rham.
 		\end{af}
-		Esta afirmación no la demostraremos. A grandes rasgos, se usan particiones de la unidad para producir conjuntos compactos en la variedad. En las subcubiertas finitas resultantes se aplica la afirmación anterior.
+		Esta afirmación no la demostraremos. A grandes rasgos, se usan particiones de la unidad para producir conjuntos compactos en la variedad. En las subcubiertas finitas correspondientes se aplica la afirmación anterior.
 		
 		Para concluir seguimos los siguientes pasos:
 		\begin{enumerate}
@@ -572,7 +576,7 @@
 			\item Por naturalidad del homomorfismo de de Rham, la cubierta de cartas coordenadas de $M$ es una cubierta por abiertos de de Rham, que de hecho es una base para la topología de $M$ (Afirmación 2).
 		\end{enumerate}
 		Así que sólo falta demostrar el inciso 1. Si $U$ es un abierto convexo de $\R^n$, por el lema de Poincaré sólo necesitamos confirmar el isomorfismo $H^0_{dR}(U)\overset{\mathcal{d}}{\approx}H^0(U,\R)$. Las 0-formas cerradas en $U$ son funciones constantes, así que para cualquier 0-simplejo $\sigma$,
-		\[\mathcal{d}[f][\sigma]=\int_{\sigma}f=\int_{\Delta_0}\sigma^*f=f\circ\sigma(0)\]
+		\[\mathcal{d}[f][\sigma]=\int_{\sigma}f=\int_{\Delta_0}\sigma^*f=(f\circ\sigma)(0)\]
 		no es cero si $f$ no es la función constante cero, así que este elemento genera $H^0(U,\R)\approx\R$.
 		
 
