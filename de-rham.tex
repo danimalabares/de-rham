@@ -97,7 +97,7 @@
 	\section{Motivación}\label{sec:1}
 	Las componentes conexas de un espacio $X$ están caracterizadas por el hecho de que, en cada una, \textit{cualquier función localmente constante es globalmente constante}. Definendo $H^0(X)$ como el espacio vectorial de funciones real-valuadas localmente constantes, $\dim H^0(X)$ es el número de componentes conexas de $X$.
 	
-	Si $M$ es un abierto en $\R^n$, esta propiedad se describe pidiendo que el gradiente
+	Si $X$ es un abierto en $\R^n$, esta propiedad se describe pidiendo que el gradiente
 	\[df=\sum_i\frac{\partial f}{\partial x^i}dx^i\]
 	sea cero.
 	
@@ -202,7 +202,7 @@
 		o, equivalentemente, es el operador que manda $v\mapsto vf$ para $v\in T_pM$. Esta definición local se extiende a una 1-forma.
 		
 		La \textbf{\textit{derivada exterior}} es el operador $d:\Omega^*(M)\to\Omega^*(M)$ definido localmente como
-		\[d\omega=d\sum_Ia_Ix^I =\sum_Ida_I\wedge x^I:=\sum_I\sum_j\frac{\partial a_I}{\partial x^j}dx^j\wedge x^I,\]
+		\[d\omega=d\sum_Ia_Idx^I =\sum_Ida_I\wedge dx^I:=\sum_I\sum_j\frac{\partial a_I}{\partial x^j}dx^j\wedge dx^I,\]
 		\textcolor{blue}{El \textbf{\textit{operador frontera}} en cohomología singular es simplemente $\Hom(\partial)=\partial^*$ donde $\partial$ es la frontera de cadenas singulares. Recordando la definición del mapeo inducido por el funtor contravariante $\Hom$, tenemos:}
 		\[\begin{tikzcd}
 			\textcolor{blue}{C_{n+1}}\arrow[d,blue,swap,"\partial"]\arrow[rd,blue,"\varphi\circ\partial=\partial^*"]\\	\textcolor{blue}{C_n}\arrow[blue,swap,r,"\varphi"]&\textcolor{blue}{G}
@@ -283,7 +283,7 @@
 		\begin{enumerate}
 			\item (Cohomología de la unión disjunta). Si $M=\bigsqcup M_i$, entonces $H_{dR}^p(M)\approx \prod H_{dR}^p(M_i)$. (Usando el pullback de las inclusiones).
 			
-			\item (Cohomología de grado cero). $H_{dR}^0(M)\approx\R$ por ser el espacio de funciones constantes, es decir, soluciones de $df=0$.
+			\item (Cohomología de grado cero). Si $M$ es conexa, $H_{dR}^0(M)\approx\R$ por ser el espacio de funciones constantes, es decir, soluciones de $df=0$.
 			
 			\item (Mayer-Vietoris). Supongamos que $\{U,V\}$ es una cubierta abierta de $M$. Las inclusiones
 			\[\begin{tikzcd}[column sep=small,row sep=small]
@@ -304,7 +304,7 @@
 			\[\int_\R:\Omega_c^1(\R)\to\R\]
 			Es suprayectivo por la existencia de funciones flan. Veamos que su kernel son las 1-formas exactas con soporte compacto. Por un lado, si $df$ tiene soporte contenido en un intervalo $[a,b]$,
 			\[\int_\R df=\int_a^bdf=f(b)-f(a)=0-0.\]
-			Por otro lado, si $g(x)dx$ tiene integral cero en $\R$, su antiderivada
+			Por otro lado, si $g(x)dx$ tiene soporte compacto e integral cero en $\R$, su antiderivada
 			\[f(x)=\int_{-\infty}^xg(t)dt\]
 			tiene soporte compacto.			
 		\end{ejem}
@@ -572,8 +572,8 @@
 		Para concluir seguimos los siguientes pasos:
 		\begin{enumerate}
 			\item Cualquier conjunto convexo en $\R^n$ es de de Rham.
-			\item Cualquier abierto en $\R^n$ es de de Rham, pues una base de su topología está dada por una colección de bolas, cada una convexa (Afirmación 2).
-			\item Por naturalidad del homomorfismo de de Rham, la cubierta de cartas coordenadas de $M$ es una cubierta por abiertos de de Rham, que de hecho es una base para la topología de $M$ (Afirmación 2).
+			\item Cualquier abierto en $\R^n$ es de de Rham, pues una base de su topología está dada por una colección de bolas, cada una convexa, así como intersecciones finitas de ellas (Afirmación 2).
+			\item Por naturalidad del homomorfismo de de Rham, la cubierta de cartas coordenadas de $M$ es una cubierta por abiertos de de Rham (e intersecciones finitas), que de hecho es una base para la topología de $M$ (Afirmación 2).
 		\end{enumerate}
 		Así que sólo falta demostrar el inciso 1. Si $U$ es un abierto convexo de $\R^n$, por el lema de Poincaré sólo necesitamos confirmar el isomorfismo $H^0_{dR}(U)\overset{\mathcal{d}}{\approx}H^0(U,\R)$. Las 0-formas cerradas en $U$ son funciones constantes, así que para cualquier 0-simplejo $\sigma$,
 		\[\mathcal{d}[f][\sigma]=\int_{\sigma}f=\int_{\Delta_0}\sigma^*f=(f\circ\sigma)(0)\]
